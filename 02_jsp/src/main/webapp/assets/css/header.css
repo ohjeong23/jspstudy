@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.header-wrap{
+ heigth:100px;
+ }
+ .header-wrap a {
+ text-decoration: none;
+ color:aqua;
+ font-size:20px;
+ font-weight: 900;
+ }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<form id="frm"
+        method="POST"
+        action="/servlet/request">
+    <div class="inp-wrap">
+      <label for="id">아이디</label>
+      <input type="text" name="id" id="id">@naver.com
+    </div>
+    <div class="inp-wrap">
+      <label for="password">비밀번호</label>
+      <input type="text" name="password" id="password">
+    </div>
+      <div class="inp-wrap">
+      <label for="repassword">비밀번호 재확인</label>
+      <input type="text" name="repassword" id="repassword">
+    </div>
+      <div class="inp-wrap">
+      <label for="name">이름</label>
+      <input type="text" name="name" id="name">
+    </div>
+    <div class="inp-wrap"> 
+    <label for="yyyy">생년월일</label>
+       <input type="text" id="yyyy">
+       <label for="m"></label>
+       <select id="m">
+<option>월</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+<option>11</option>
+<option>12</option>
+</select>
+<input type="text" id="day">
+</div>
+<div class="inp-wrap">성별
+<label for="human"></label>
+<select id="human">
+<option>성별</option>
+<option>여자</option>
+<option>남자</option>
+</select>
+</div>
+    <div class="inp-wrap">
+      <label for="email">본인 확인 이메일(선택)</label>
+      <input type="text" name="email" id="email">
+      </div>
+      <div>휴대전화
+
+<select id="phone">
+<option>대한민국+82</option>
+</select>
+<input type="text" id="number">
+<button type="button">인증번호 받기</button>
+<input type="text" id="afternumber">
+</div>
+      
+      <div class="btn-wrap">
+      <button type="submit">전송</button>
+      <button type="reset">다시입력</button>
+    </div>
+  </form>
+
+<script>
+  
+    document.getElementById('frm').addEventListener('submit', (evt)=>{
+
+      // 필수 검사
+      let id = document.getElementById('id');
+      if(id.value === ''){
+        alert('아이디는 필수입니다.');
+        id.focus();
+        evt.preventDefault(); 
+        return;                
+      }
+      
+      // 정규식 검사
+      let password = document.getElementById('password');
+      let repassword = document.getElementById('repassword');
+      if(password != repassword){
+        alert('비밀번호를 확인하세요.');
+        password.focus();
+        evt.preventDefault();
+        return;
+      }
+      
+    })
+  
+  </script>
+
+
+
+
+</body>
+</html>
