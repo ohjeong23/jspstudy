@@ -11,8 +11,7 @@
      <jsp:param value="메인2" name="title"/>
    </jsp:include>
   
-  
-  
+ 
   
   <h1>main2</h1>
   

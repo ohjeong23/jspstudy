@@ -27,6 +27,17 @@
      out.println("</div>");
    }
  %>
+<% 
+  
+   String uploadPath = application.getRealPath("upload");
+   File uploadDir = new File(uploadPath);
+   
+
+
+%>
+
+
+
 
 <hr>
 <div>

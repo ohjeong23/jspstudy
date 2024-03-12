@@ -16,7 +16,7 @@
     2. 형식 
       <c:set var="attribute 속성명" value="값" scope="Bind 영역"></c:set>
       
-      <%
+ <%
   pageContext.setAttribute("a", 1);
   request.setAttribute("a", 2);
   session.setAttribute("a", 3);
@@ -28,6 +28,8 @@
 <c:set var="a" value="3" scope="session"></c:set>
 <c:set var="a" value="4" scope="application"></c:set>
 
+
+
 <div>${pageScope.a}</div>
 <div>${requestScope.a}</div>
 <div>${sessionScope.a}</div>
@@ -35,9 +37,12 @@
 
 <%-- 자주 사용하게 될 <c:set> --%>
 <c:set var="contextPath" value= "${pageContext.request.contextPath}" scope="page"></c:set>
-<c:set var="contextPath" value= "<%=request.getContextPath()%>" />
+<c:set var="contextPath" value= "<%=request.getContextPath()%>" />                    
 
 <div>${contextPath}</div>
+
+
+
 
 
 </body>

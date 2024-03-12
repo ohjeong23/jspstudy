@@ -1,3 +1,4 @@
+<%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
 <%@page import="pkg04_EL.Book"%>
@@ -55,6 +56,15 @@
   application.setAttribute("a", 4);
 %>
 
+<%
+  pageContext.setAttribute("a", 1);
+  request.setAttribute("df",2);
+  session.setAttribute("a", 1);
+  
+
+
+%>
+
 <%-- JSP Bind 영역의 우선 순위 확인 --%>
 
 <div>${a}</div>
@@ -81,8 +91,6 @@
 <div>${book.price}</div> <%-- book.getPrice() 방식으로 호출된다. --%>
 
 
-
-
 <%-- JSP Bind 영역에 저장된 Map 정보 확인 
 객체를 대체하는 맵--%>
 <% 
@@ -94,25 +102,11 @@
 <div>${map.price}</div>
 
 <%-- List 에 Book 객체를 3개 저장하고 EL 로 확인하기 
-
-<%
-  List<Book> books = Arrays.asList(
-      new Book("태백산맥","조정래",1000),
-      new Book("홍길동전","허균",2000),
-      new Book("데미안","헤르만헤세",3000)
-      );
-  pageContext.setAttribute("books",books);
-%>
-<div>${books.get(0).title}</div>
-<div>${books.get(0).author}</div>
-<div>${books.get(0).price}</div>
-<div>${books[1].title}</div>
-<div>${books[1].author}</div>
-<div>${books[1].price}</div>
-<hr>
-
-
 --%>
+
+
+
+
 
 
 <%-- EL 연산자 --%>
@@ -140,6 +134,13 @@
 <hr>
 <div>${a >0 ? "양수" : "음수" }</div>
 <hr>
+<div>${a == 5 and b ==5}</div>
+
+
+
+
+
+
 
 <%-- 
   request 영역 사용 시 주의사항
@@ -154,5 +155,30 @@
  ${param.number},문자열 타입
 
 
---%></body>
+--%>
+
+
+
+
+
+<%
+  List<Book> books = Arrays.asList(
+      new Book("태백산맥","조정래",1000),
+      new Book("홍길동전","허균",2000),
+      new Book("데미안","헤르만헤세",3000)
+      );
+  pageContext.setAttribute("books",books);
+%>
+<div>${books.get(0).title}</div>
+<div>${books.get(0).author}</div>
+<div>${books.get(0).price}</div>
+<div>${books[1].title}</div>
+<div>${books[1].author}</div>
+<div>${books[1].price}</div>
+<hr>
+
+
+
+
+</body>
 </html>
